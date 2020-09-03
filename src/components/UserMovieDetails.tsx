@@ -1,7 +1,9 @@
 import React from "react";
 import useAbortableFetch from "use-abortable-fetch";
 import { useParams } from "react-router-dom";
+
 import Loading from "./Loading";
+import ErrorDisplay from "./ErrorDisplay";
 import LabeledInput from "./LabeledInput";
 import LabeledTextarea from "./LabeledTextarea";
 
@@ -12,7 +14,7 @@ const UserMovieDetails: React.FC = () => {
   );
 
   if (error) {
-    return <div>Error...</div>;
+    return <ErrorDisplay error={error} />;
   }
 
   if (loading || !data || typeof data === "string") {

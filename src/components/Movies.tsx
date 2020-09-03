@@ -1,5 +1,7 @@
 import React from "react";
 import useAbortableFetch from "use-abortable-fetch";
+
+import ErrorDisplay from "./ErrorDisplay";
 import Loading from "./Loading";
 import MovieCard from "./MovieCard";
 
@@ -9,7 +11,7 @@ const Movies: React.FC = () => {
   );
 
   if (error) {
-    return <div>Error...</div>;
+    return <ErrorDisplay error={error} />;
   }
 
   if (loading || !Array.isArray(data)) {

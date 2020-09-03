@@ -1,12 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ErrorBoundary } from "react-error-boundary";
 import "bootstrap/dist/css/bootstrap.css";
+import "./index.css";
 import App from "./App";
+import ErrorDisplay from "./components/ErrorDisplay";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundary
+      fallbackRender={({ error, componentStack }) => (
+        <ErrorDisplay error={error} componentStack={componentStack} />
+      )}
+    >
+      <App />
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );
