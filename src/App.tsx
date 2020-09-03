@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 import Movies from "./components/Movies";
 import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/users">
             <Users />
+          </Route>
+          <Route path="/user/:userId/movie/:movieId">
+            <UserDetails />
           </Route>
         </Switch>
       </div>
