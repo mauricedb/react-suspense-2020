@@ -7,8 +7,12 @@ import ErrorDisplay from "./ErrorDisplay";
 import LabeledInput from "./LabeledInput";
 import LabeledTextarea from "./LabeledTextarea";
 
+type RouteParams = {
+  movieId: string;
+};
+
 const UserMovieDetails: React.FC = () => {
-  const { movieId } = useParams();
+  const { movieId } = useParams<RouteParams>();
   const { data, error, loading } = useAbortableFetch<Movie>(
     `https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies/${movieId}?nosleep=1000`
   );

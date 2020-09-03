@@ -6,8 +6,12 @@ import ErrorDisplay from "./ErrorDisplay";
 import Loading from "./Loading";
 import LabeledInput from "./LabeledInput";
 
+type RouteParams = {
+  userId: string;
+};
+
 const UserUserDetails: React.FC = () => {
-  const { userId } = useParams();
+  const { userId } = useParams<RouteParams>();
   const { data, error, loading } = useAbortableFetch<User>(
     `https://the-problem-solver-sample-data.azurewebsites.net/accounts/${userId}?nosleep=2000`
   );
