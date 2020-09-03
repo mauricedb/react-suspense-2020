@@ -6,14 +6,12 @@ type LabeledInputProps = {
   rows: number;
 };
 
-const LabeledTextarea = ({ label, value, rows }: LabeledInputProps) => {
-  return (
-    <div className="form-group">
-      <label className="form-label">{label}</label>
+const LabeledTextarea = ({ label, value, rows }: LabeledInputProps) => (
+  <div className="form-group">
+    <label className="form-label">{label}</label>
 
-      <textarea className="form-control" rows={rows} value={value} readOnly />
-    </div>
-  );
-};
+    <textarea className="form-control" rows={rows} value={value} readOnly />
+  </div>
+);
 
 export default LabeledTextarea;

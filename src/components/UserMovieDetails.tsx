@@ -14,7 +14,7 @@ type RouteParams = {
 const UserMovieDetails: React.FC = () => {
   const { movieId } = useParams<RouteParams>();
   const { data, error, loading } = useAbortableFetch<Movie>(
-    `https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies/${movieId}?nosleep=1000`
+    `https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies/${movieId}?sleep=1000`
   );
 
   if (error) {

@@ -13,7 +13,7 @@ type RouteParams = {
 const UserUserDetails: React.FC = () => {
   const { userId } = useParams<RouteParams>();
   const { data, error, loading } = useAbortableFetch<User>(
-    `https://the-problem-solver-sample-data.azurewebsites.net/accounts/${userId}?nosleep=2000`
+    `https://the-problem-solver-sample-data.azurewebsites.net/accounts/${userId}?sleep=2000`
   );
 
   if (error) {

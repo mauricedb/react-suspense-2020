@@ -5,14 +5,12 @@ type LabeledInputProps = {
   value: string | number;
 };
 
-const LabeledInput = ({ label, value }: LabeledInputProps) => {
-  return (
-    <div className="form-group">
-      <label className="form-label">{label}</label>
+const LabeledInput = ({ label, value }: LabeledInputProps) => (
+  <div className="form-group">
+    <label className="form-label">{label}</label>
 
-      <input className="form-control" value={value} readOnly />
-    </div>
-  );
-};
+    <input className="form-control" value={value} readOnly />
+  </div>
+);
 
 export default LabeledInput;

@@ -6,25 +6,23 @@ import Movies from "./components/Movies";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="container">
-        <NavBar />
-        <Switch>
-          <Route path="/movies">
-            <Movies />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/user/:userId/movie/:movieId">
-            <UserDetails />
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
-}
+const App: React.FC = () => (
+  <BrowserRouter>
+    <div className="container">
+      <NavBar />
+      <Switch>
+        <Route path="/movies">
+          <Movies />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/user/:userId/movie/:movieId">
+          <UserDetails />
+        </Route>
+      </Switch>
+    </div>
+  </BrowserRouter>
+);
 
 export default App;
