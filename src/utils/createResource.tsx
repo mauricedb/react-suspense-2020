@@ -3,6 +3,18 @@
 import React from "react";
 import { Link, LinkProps, NavLink, NavLinkProps } from "react-router-dom";
 
+export function createFetchResource() {
+  return createResource(async (url) => {
+    const rsp = await fetch(url);
+
+    if (!rsp.ok) {
+      throw new Error(rsp.statusText);
+    }
+
+    return await rsp.json();
+  });
+}
+
 export function createResource(getPromise: (key: string) => Promise<unknown>) {
   let cache: { [key: string]: unknown } = {};
   let inflight: { [key: string]: Promise<unknown> } = {};
