@@ -7,7 +7,7 @@ import UserCard from "./UserCard";
 
 const Users: React.FC = () => {
   const { data, error, loading } = useAbortableFetch<User[]>(
-    `https://the-problem-solver-sample-data.azurewebsites.net/accounts?sleep=1000`
+    "https://the-problem-solver-sample-data.azurewebsites.net/accounts?sleep=1000"
   );
 
   if (error) {

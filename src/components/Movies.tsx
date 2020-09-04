@@ -7,7 +7,7 @@ import MovieCard from "./MovieCard";
 
 const Movies: React.FC = () => {
   const { data, error, loading } = useAbortableFetch<Movie[]>(
-    `https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies`
+    "https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies"
   );
 
   if (error) {
