@@ -1,6 +1,6 @@
 import React from "react";
 import useAbortableFetch from "use-abortable-fetch";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import ErrorDisplay from "./ErrorDisplay";
 import Loading from "./Loading";
@@ -11,6 +11,8 @@ type RouteParams = {
 };
 
 const UserUserDetails: React.FC = () => {
+  const isPending = false;
+  const history = useHistory();
   const { userId } = useParams<RouteParams>();
   const { data, error, loading } = useAbortableFetch<User>(
     `https://the-problem-solver-sample-data.azurewebsites.net/accounts/${userId}?sleep=2000`
@@ -26,6 +28,22 @@ const UserUserDetails: React.FC = () => {
 
   return (
     <div>
+      <div>
+        <button
+          className="btn btn-primary float-right"
+          onClick={() => {
+            history.push("/users");
+          }}
+        >
+          Back to users
+          {isPending && (
+            <span
+              className="spinner-border spinner-border-sm ml-3"
+              role="status"
+            />
+          )}
+        </button>
+      </div>
       <img src={data.picture} alt={data.firstname} />
       <LabeledInput label="Firstname:" value={data.firstname} />
       <LabeledInput label="Surname:" value={data.surname} />
