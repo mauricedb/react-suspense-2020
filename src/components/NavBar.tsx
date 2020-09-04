@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import resource from "./resource";
 
 const NavBar: React.FC = () => (
   <nav className="navbar navbar-light bg-light navbar-expand">
@@ -7,12 +8,22 @@ const NavBar: React.FC = () => (
       Home
     </Link>
     <div className="navbar-nav">
-      <NavLink to="/movies" className="nav-link" activeClassName="active">
+      <resource.NavLink
+        to="/movies"
+        className="nav-link"
+        activeClassName="active"
+        cacheKeys="https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies"
+      >
         Movies
-      </NavLink>
-      <NavLink to="/users" className="nav-link" activeClassName="active">
+      </resource.NavLink>
+      <resource.NavLink
+        to="/users"
+        className="nav-link"
+        activeClassName="active"
+        cacheKeys="https://the-problem-solver-sample-data.azurewebsites.net/accounts?sleep=1000"
+      >
         Users
-      </NavLink>
+      </resource.NavLink>
     </div>
   </nav>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import resource from "./resource";
 
 type Props = { user: User };
 
@@ -13,12 +13,16 @@ const UserCard: React.FC<Props> = ({ user }) => (
         <p className="card-text">{user.phone}</p>
       </div>
       <div className="card-footer">
-        <Link
+        <resource.Link
           to={`/user/${user.id}/movie/${user.favorite_movie}`}
           className="btn btn-primary"
+          cacheKeys={[
+            `https://the-problem-solver-sample-data.azurewebsites.net/accounts/${user.id}?sleep=2000`,
+            `https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies/${user.favorite_movie}?sleep=1000`,
+          ]}
         >
           Details
-        </Link>
+        </resource.Link>
       </div>
     </div>
   </div>
