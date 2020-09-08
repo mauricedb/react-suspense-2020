@@ -1,22 +1,12 @@
 import React from "react";
-import useAbortableFetch from "use-abortable-fetch";
 
-import ErrorDisplay from "./ErrorDisplay";
-import Loading from "./Loading";
 import MovieCard from "./MovieCard";
+import resource from "./resource";
 
 const Movies: React.FC = () => {
-  const { data, error, loading } = useAbortableFetch<Movie[]>(
+  const data = resource.read<Movie[]>(
     "https://the-problem-solver-sample-data.azurewebsites.net/top-rated-movies"
   );
-
-  if (error) {
-    return <ErrorDisplay error={error} />;
-  }
-
-  if (loading || !Array.isArray(data)) {
-    return <Loading />;
-  }
 
   return (
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
