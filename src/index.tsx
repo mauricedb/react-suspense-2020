@@ -8,7 +8,7 @@ import ErrorDisplay from "./components/ErrorDisplay";
 import * as serviceWorker from "./serviceWorker";
 import Loading from "./components/Loading";
 
-ReactDOM.render(
+ReactDOM.unstable_createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Suspense fallback={<Loading />}>
       <ErrorBoundary
@@ -19,8 +19,7 @@ ReactDOM.render(
         <App />
       </ErrorBoundary>
     </Suspense>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
